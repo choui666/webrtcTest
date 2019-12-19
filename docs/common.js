@@ -5,7 +5,8 @@ var zg,
         appid: appid * 1,
         idName: new Date().getTime() + '',
         nickName: 'u' + new Date().getTime(),
-        server: "wss://wsliveroom" + appid + "-api.zego.im:8282/ws",//"wss://wsliveroom-alpha.zego.im:8282/ws",
+        // server: "wss://wsliveroom" + appid + "-api.zego.im:8282/ws",//"wss://wsliveroom-alpha.zego.im:8282/ws",
+        server: ['wss://webliveroom-demo.zego.im/ws', 'wss://webliveroom-demo-bak.zego.im/ws'],
         logLevel: 0,
         logUrl: "",
         remoteLogLevel: 0,
@@ -452,6 +453,10 @@ function bindEvent() {
     $('#createRoom').click(function () {
         zg.setUserStateUpdate(true);
         openRoom($('#roomId').val(), 1);
+    });
+
+    $('#startPublishStream').click(function () {
+        doPreviewPublish();
     });
 
     $('#openRoom').click(function () {
